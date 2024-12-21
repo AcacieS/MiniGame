@@ -1,19 +1,19 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class DampenedSpringParenting : MonoBehaviour
+private class DampenedSpringParenting : MonoBehaviour
 {
-    public Transform targetParent;  // The parent to follow
-    public Vector3 positionOffset;  // Offset in local space for position
-    public Vector3 rotationOffsetEuler;  // Offset in local space for rotation (Euler angles)
+    private Transform targetParent;  // The parent to follow
+    private Vector3 positionOffset;  // Offset in local space for position
+    private Vector3 rotationOffsetEuler;  // Offset in local space for rotation (Euler angles)
 
-    public float positionSpring = 50f;  // Spring constant for position
-    public float positionSpringmultiplyer = 1f;
-    public float positionDamping = 5f;  // Damping constant for position
-    public float rotationSpring = 50f;  // Spring constant for rotation
-    public float rotationSpringmultiplyer = 1f;
-    public float rotationDamping = 5f;  // Damping constant for rotation
-    public float maxDistance = 5f;  // Maximum allowed distance from the target position
+    private float positionSpring = 50f;  // Spring constant for position
+    private float positionSpringmultiplyer = 1f;
+    private float positionDamping = 5f;  // Damping constant for position
+    private float rotationSpring = 50f;  // Spring constant for rotation
+    private float rotationSpringmultiplyer = 1f;
+    private float rotationDamping = 5f;  // Damping constant for rotation
+    private float maxDistance = 5f;  // Maximum allowed distance from the target position
 
     private Rigidbody rb;
     private Quaternion rotationOffset;  // Offset in quaternion form
