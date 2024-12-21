@@ -11,33 +11,36 @@ public class EnemyAnimarionTime_script : MonoBehaviour
     private Dictionary<string, Animator[]> my_choice = new Dictionary<string, Animator[]>();
    
 
-    private float action_Time;
-    private float action_Time_max;
-    private float total_Time;
+    private float action_Time = 5f;
+    private float action_Time_max = 5f;
+    
     
     //GameObject[] eyessss = my_choice["eye"];
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        my_choice.Add("eye", eyes);
-        my_choice.Add("hand", hands);
-        my_choice.Add("phone", phones);
-
-        action_Time = 5f;
-        action_Time_max = 5f;
-        total_Time = 100f;
+       
     }
-
+    public void addTypeAction(string Obj){
+        if (Obj=="eye"){
+            my_choice.Add(Obj, eyes);
+        }else if(Obj=="hand"){
+            my_choice.Add(Obj, hands);
+        }else{
+            my_choice.Add(Obj, phones);
+        }
+    }
+    public void Set_max_time(float new_max_time){
+        action_Time_max = new_max_time;
+    }
     // Update is called once per frame
     void Update()
     {
-        total_Time -= Time.deltaTime;
+        
         action_Time -= Time.deltaTime;
 
-        if(total_Time<=0){
-            Good_End();
-        }
+        
         if(action_Time <= 0)
         {
             Do_Animation();
@@ -62,8 +65,6 @@ public class EnemyAnimarionTime_script : MonoBehaviour
             obj_choice.SetTrigger("Animate");
         }
     }
-    void Good_End(){
-        Debug.Log("Good End triggered!");
-    }
+    
 
 }
