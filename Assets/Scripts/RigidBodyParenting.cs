@@ -1,21 +1,21 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-private class DampenedSpringParenting : MonoBehaviour
+public class DampenedSpringParenting : MonoBehaviour
 {
-    private Transform targetParent;  // The parent to follow
-    private Vector3 positionOffset;  // Offset in local space for position
-    private Vector3 rotationOffsetEuler;  // Offset in local space for rotation (Euler angles)
+    [SerializeField]private Transform targetParent;  // The parent to follow
+    [SerializeField]private Vector3 positionOffset;  // Offset in local space for position
+    [SerializeField]private Vector3 rotationOffsetEuler;  // Offset in local space for rotation (Euler angles)
 
-    private float positionSpring = 50f;  // Spring constant for position
-    private float positionSpringmultiplyer = 1f;
-    private float positionDamping = 5f;  // Damping constant for position
-    private float rotationSpring = 50f;  // Spring constant for rotation
-    private float rotationSpringmultiplyer = 1f;
-    private float rotationDamping = 5f;  // Damping constant for rotation
-    private float maxDistance = 5f;  // Maximum allowed distance from the target position
+    [SerializeField]private float positionSpring = 50f;  // Spring constant for position
+    [SerializeField]private float positionSpringmultiplyer = 1f;
+    [SerializeField]private float positionDamping = 5f;  // Damping constant for position
+    [SerializeField]private float rotationSpring = 50f;  // Spring constant for rotation
+    [SerializeField]private float rotationSpringmultiplyer = 1f;
+    [SerializeField]private float rotationDamping = 5f;  // Damping constant for rotation
+    [SerializeField]private float maxDistance = 5f;  // Maximum allowed distance from the target position
 
-    private Rigidbody rb;
+    public Rigidbody rb;
     private Quaternion rotationOffset;  // Offset in quaternion form
 
     void Awake()
@@ -60,7 +60,7 @@ private class DampenedSpringParenting : MonoBehaviour
         rb.AddTorque(springTorque + dampingTorque, ForceMode.Force);
     }
 
-    private void OnValidate()
+    public void OnValidate()
     {
         rotationOffset = Quaternion.Euler(rotationOffsetEuler);
     }

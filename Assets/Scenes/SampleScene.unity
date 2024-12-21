@@ -5476,7 +5476,7 @@ GameObject:
   - component: {fileID: 1881798700}
   - component: {fileID: 1881798699}
   - component: {fileID: 1881798698}
-  - component: {fileID: 1881798697}
+  - component: {fileID: 1881798703}
   m_Layer: 3
   m_Name: Spray bottle placeholder
   m_TagString: Untagged
@@ -5484,28 +5484,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1881798697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881798696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d518b1810a40368e15393322926e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetParent: {fileID: 1987998342}
-  positionOffset: {x: 0.6, y: -0.1, z: 1.2}
-  rotationOffsetEuler: {x: -15, y: 0, z: 0}
-  positionSpring: 99
-  positionSpringmultiplyer: 4
-  positionDamping: 20
-  rotationSpring: 95
-  rotationSpringmultiplyer: 1
-  rotationDamping: 25
-  maxDistance: 0.5
 --- !u!54 &1881798698
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5624,11 +5602,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
---- !u!4 &1987998342 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5239100585477912294, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-  m_PrefabInstance: {fileID: 74216165}
+--- !u!114 &1881798703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881798696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412d518b1810a40368e15393322926e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
