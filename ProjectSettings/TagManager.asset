@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Hits
   - enemy
+  - hitMelee
+  - hand
+  - table
   layers:
   - Default
   - TransparentFX

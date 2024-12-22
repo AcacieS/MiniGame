@@ -361,6 +361,8 @@ GameObject:
   - component: {fileID: 5624820154030463481}
   - component: {fileID: 4837791961380012712}
   - component: {fileID: 1076548885308265975}
+  - component: {fileID: 8496673040311700355}
+  - component: {fileID: 3030820428618706374}
   m_Layer: 0
   m_Name: eye
   m_TagString: Untagged
@@ -480,3 +482,27 @@ CapsuleCollider:
   m_Height: 1.361223
   m_Direction: 1
   m_Center: {x: 0.000001136621, y: 0.18061523, z: 0}
+--- !u!114 &8496673040311700355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6805005142640463412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf25114310fd21468c1c91f03cf11e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3030820428618706374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6805005142640463412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b8ad3a9a616114c8f3c030d9dfe099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

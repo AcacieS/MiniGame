@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5359073422955422575}
   - component: {fileID: 7945277889808214257}
   - component: {fileID: 3542032162050494372}
+  - component: {fileID: 4451422938171310499}
   m_Layer: 0
   m_Name: Iphone12 (1)
   m_TagString: Untagged
@@ -110,7 +111,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: eee95d1cb7ca92d4baebe7bc8fb87b04, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -201,5 +202,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4620c4d22e9ae544eb19b519af688479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashSound: {fileID: 0}
+--- !u!114 &4451422938171310499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7279818819916850486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b8ad3a9a616114c8f3c030d9dfe099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
