@@ -1,3 +1,4 @@
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,16 +17,29 @@ public class SprayLogic : MonoBehaviour
 
     private bool isActive = true;
     private bool isActionInProgress = false;
+    
+    public void InitializeSprayLogic()
+    {
+        isActionInProgress = false;
+        isActive = true;
+        sprayTimeRemaing = 120;
+    }  
+    void Awake()
+    {
+        InitializeSprayLogic();
+    }
     void Update()
     {
-        if (isActive && !isActionInProgress)
+        if (isActive && !isActionInProgress )
         {
             if (Input.GetKeyDown(targetKey))
             {
-                isActionInProgress = true;
-                startSpray.Invoke();
-
-                if (sprayTimeRemaing <= 0)
+                if (!(sprayTimeRemaing <= 0))
+                {
+                    isActionInProgress = true;
+                    startSpray.Invoke();
+                }
+                else
                 {
                     sprayTimeRemaing = 0;
                     isActive = false;
@@ -39,11 +53,10 @@ public class SprayLogic : MonoBehaviour
         {
             endSpray.Invoke();
             isActionInProgress = false;
-            Debug.Log(sprayTimeRemaing);
         } 
 
         // Handle left-click when the global variable is > 0
-        if (isActive && Input.GetMouseButtonDown(0) && !isActionInProgress) StartCoroutine(HandleHitEvents()); // 0 represents left mouse button
+        if (isActive && Input.GetMouseButtonDown(0) && !isActionInProgress && sprayTimeRemaing > 0) StartCoroutine(HandleHitEvents()); // 0 represents left mouse button
 
     }
 
@@ -59,6 +72,5 @@ public class SprayLogic : MonoBehaviour
         endSprayMelee.Invoke();
         isActionInProgress = false;
         sprayTimeRemaing -= hitSprayUseAmount;
-        Debug.Log(sprayTimeRemaing);
-    }
+    }  
 }
