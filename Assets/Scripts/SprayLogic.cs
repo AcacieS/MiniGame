@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class SprayLogic : MonoBehaviour
 {
     public static float sprayTimeRemaing = 120f; // Initial value of the global variable
+    public static float sprayPosDampMulti = 1f;
     [SerializeField]private float sprayDecrementAmount = 0.1f; // Amount to decrement per key press
     private KeyCode targetKey = KeyCode.Space; // Key to monitor
     public UnityEvent startSpray; // Event triggered when key is pressed
@@ -24,12 +25,14 @@ public class SprayLogic : MonoBehaviour
             {
                 isActionInProgress = true;
                 startSpray.Invoke();
+                sprayPosDampMulti = 2;
 
                 if (sprayTimeRemaing <= 0)
                 {
                     sprayTimeRemaing = 0;
                     isActive = false;
                     endSpray.Invoke();
+                    sprayPosDampMulti = 2;
                     isActionInProgress = false;
                 }
             }
@@ -38,8 +41,8 @@ public class SprayLogic : MonoBehaviour
         if (Input.GetKeyUp(targetKey))
         {
             endSpray.Invoke();
+            sprayPosDampMulti = 2;
             isActionInProgress = false;
-            Debug.Log(sprayTimeRemaing);
         } 
 
         // Handle left-click when the global variable is > 0
@@ -50,11 +53,20 @@ public class SprayLogic : MonoBehaviour
     void FixedUpdate()
     {
        if (isActionInProgress == true) sprayTimeRemaing -= sprayDecrementAmount * Time.deltaTime; 
+       if (sprayPosDampMulti > 1 && !(sprayPosDampMulti == 1))
+       {
+            sprayPosDampMulti -= 0.05f;
+       }
+       else
+       {
+            sprayPosDampMulti = 1f;
+       }
     }
     private System.Collections.IEnumerator HandleHitEvents()
     {
         isActionInProgress = true;
         startSprayMelee.Invoke();
+        sprayPosDampMulti = 3;
         yield return new WaitForSeconds(hitDelay);
         endSprayMelee.Invoke();
         isActionInProgress = false;

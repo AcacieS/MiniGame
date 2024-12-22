@@ -5,21 +5,25 @@ public class DampenedSpringParenting : MonoBehaviour
 {
     [SerializeField] private Transform targetParent; // The parent to follow
     [SerializeField] private Vector3 positionOffset; // Offset in local space for position
+    private bool getFromPrev = true;
     [SerializeField] private Vector3 rotationOffsetEuler; // Offset in local space for rotation (Euler angles)
     [SerializeField] private Transform lookAtTarget; // The object to look at
-
     [SerializeField] private float positionSpring = 50f; // Spring constant for position
     [SerializeField] private float positionSpringmultiplyer = 1f;
     [SerializeField] private float positionDamping = 5f; // Damping constant for position
+    private float positionDampingUse = 5f;
     [SerializeField] private float rotationSpring = 50f; // Spring constant for rotation
     [SerializeField] private float rotationSpringmultiplyer = 1f;
     [SerializeField] private float rotationDamping = 5f; // Damping constant for rotation
     [SerializeField] private float maxDistance = 5f; // Maximum allowed distance from the target position
-
+    
     private Rigidbody rb;
     private Quaternion rotationOffset; // Offset in quaternion form
     private bool limiting = false;
     private float currentDistance = 0f;
+
+    // New variable to hold the component that modifies positionOffset
+    [SerializeField] private PositionOffsetSource positionOffsetSource;
 
     void Awake()
     {
@@ -29,6 +33,14 @@ public class DampenedSpringParenting : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Update positionOffset from PositionOffsetSource component if available
+        if (getFromPrev && positionOffsetSource != null)
+        {
+            positionOffset = positionOffsetSource.GetPositionOffset(); // Assuming PositionOffsetSource has this method
+            positionDampingUse = positionDamping * SprayLogic.sprayPosDampMulti;
+            Debug.Log(positionDampingUse);
+        } 
+
         if (targetParent == null) return;
 
         // Calculate target position with offset
@@ -63,7 +75,7 @@ public class DampenedSpringParenting : MonoBehaviour
         
         // Position spring-damper system
         Vector3 velocityDelta = rb.linearVelocity;
-        Vector3 positionForce = positionSpring * positionDelta * positionSpringmultiplyer - positionDamping * velocityDelta;
+        Vector3 positionForce = positionSpring * positionDelta * positionSpringmultiplyer - positionDampingUse * velocityDelta;
         rb.AddForce(positionForce, ForceMode.Force);
 
         // Calculate target rotation with offset
