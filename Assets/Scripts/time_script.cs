@@ -15,7 +15,7 @@ public class time_script : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        anim_script = GameObject.Find("Enemy").GetComponent<EnemyAnimarionTime_script>();
+        anim_script = GameObject.Find("/Mechanism/Enemy").GetComponent<EnemyAnimarionTime_script>();
         anim_script.addTypeAction("eye");
         remain_Time = total_Time;
     }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2248e264ea088a4f83b4fbe325a68fc
+guid: c7b750d94fe917946bbfb7745a9198dc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hpbar_0
+      name: Victory 3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 316
-        height: 185
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b57349e7fb8d90847904b98b1301899d
-      internalID: 1991599098
+      spriteID: b688c162ae928ae47a15ffc35cb5fd26
+      internalID: -1607369749
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7e94da6d609451d4f9a47756c16ab0d6
+    spriteID: f79ac6fbc4448f541b1f12f2b2838c43
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hpbar_0: 1991599098
+      Victory 3_0: -1607369749
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
