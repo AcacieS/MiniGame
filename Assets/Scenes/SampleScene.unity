@@ -208,63 +208,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
---- !u!1 &102459352
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 102459354}
-  - component: {fileID: 102459353}
-  m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &102459353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102459352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 189ebda1bde3c9f4da703ff5033a60f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eyes:
-  - {fileID: 668493538}
-  - {fileID: 0}
-  hands:
-  - {fileID: 349167336}
-  - {fileID: 0}
-  - {fileID: 0}
-  phones:
-  - {fileID: 1332451834}
-  - {fileID: 0}
---- !u!4 &102459354
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102459352}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 854306062}
-  - {fileID: 1625028965}
-  - {fileID: 1110959954}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &391661922
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +290,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18be026217c294e75859b4f580181ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprayDecrementAmount: 1
+  startSpray:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 986075850}
+        m_TargetAssemblyTypeName: SprayParticleSystemController, Assembly-CSharp
+        m_MethodName: TurnOnParticles
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 100
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  endSpray:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 986075850}
+        m_TargetAssemblyTypeName: SprayParticleSystemController, Assembly-CSharp
+        m_MethodName: TurnOffParticles
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  startSprayMelee:
+    m_PersistentCalls:
+      m_Calls: []
+  endSprayMelee:
+    m_PersistentCalls:
+      m_Calls: []
+  hitDelay: 0.5
+  hitSprayUseAmount: 2
 --- !u!4 &475259410
 Transform:
   m_ObjectHideFlags: 0
@@ -384,7 +366,6 @@ GameObject:
 --- !u!65 &550089083
 BoxCollider:
   m_ObjectHideFlags: 0
-      objectReference: {fileID: 0}
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -465,13 +446,12 @@ Transform:
   m_GameObject: {fileID: 550089082}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3, y: 1.0979, z: 1.0225}
+  m_LocalPosition: {x: 3.3, y: 1.0979, z: 1.2}
   m_LocalScale: {x: 1, y: 3.877963, z: 5.286322}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
 --- !u!1 &659111849
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,16 +561,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &668493538 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 170447944236754113, guid: bb93e351fc4e4f64c93b6a1a278a4107, type: 3}
-  m_PrefabInstance: {fileID: 4410896385702655922}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &668493539 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1757795554696656103, guid: bb93e351fc4e4f64c93b6a1a278a4107, type: 3}
-  m_PrefabInstance: {fileID: 4410896385702655922}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,39 +663,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5239100585477912294, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
   m_PrefabInstance: {fileID: 74216165}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &854306061
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 854306062}
-  m_Layer: 0
-  m_Name: Eye
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &854306062
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854306061}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.57, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 212858530}
-  - {fileID: 668493539}
-  m_Father: {fileID: 102459354}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &986075845
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +675,7 @@ GameObject:
   - component: {fileID: 986075849}
   - component: {fileID: 986075846}
   - component: {fileID: 986075847}
+  - component: {fileID: 986075850}
   m_Layer: 0
   m_Name: Spray emitter
   m_TagString: Untagged
@@ -769,7 +707,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: -876546973899608171, guid: f2b047b5c26d840c9ba084688971d15b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -958,7 +896,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6
+      scalar: 8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1076,7 +1014,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1454,7 +1392,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 10
+    angle: 5
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -2089,7 +2027,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -2098,7 +2036,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 0, g: 0, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2122,7 +2060,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -3088,7 +3026,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -4
+      scalar: -5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4977,8 +4915,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   CustomDataModule:
     enabled: 0
-    mode0: 0
-    vectorComponentCount0: 4
+    mode0: 1
+    vectorComponentCount0: 1
     color0:
       serializedVersion: 2
       minMaxState: 0
@@ -5047,30 +4985,30 @@ ParticleSystem:
     colorLabel0: Color
     vector0_0:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 1
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 0
+          value: 1
+          inSlope: -6.2002783
+          outSlope: -6.2002783
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0.10025706
         - serializedVersion: 3
           time: 1
-          value: 0
-          inSlope: 0
-          outSlope: 0
+          value: -0.837837
+          inSlope: -0.21455553
+          outSlope: -0.21455553
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0.1259641
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -5587,84 +5525,19 @@ ParentConstraint:
   m_Sources:
   - sourceTransform: {fileID: 1881798702}
     weight: 1
---- !u!1 &1110959953
-GameObject:
+--- !u!114 &986075850
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1110959954}
-  m_Layer: 0
-  m_Name: Phone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1110959954
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110959953}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 110229888}
-  - {fileID: 1332451835}
-  m_Father: {fileID: 102459354}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1332451834 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 473366285173231821, guid: 99a786f5a27c0bd4d93bd084d7ad9c5c, type: 3}
-  m_PrefabInstance: {fileID: 4283137123362829411}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1332451835 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7042509614719603222, guid: 99a786f5a27c0bd4d93bd084d7ad9c5c, type: 3}
-  m_PrefabInstance: {fileID: 4283137123362829411}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1625028964
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1625028965}
-  m_Layer: 0
-  m_Name: Hand
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1625028965
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625028964}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 578649194}
-  - {fileID: 474803449}
-  - {fileID: 349167337}
-  m_Father: {fileID: 102459354}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
+  m_GameObject: {fileID: 986075845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 698488ed6d2f9460396d557e268c1bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfx: {fileID: 0}
 --- !u!1 &1881798696
 GameObject:
   m_ObjectHideFlags: 0
@@ -5816,6 +5689,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7c5ae7fc2c041958d5d3c5f8eee084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetParent: {fileID: 714139262}
+  positionOffset: {x: 0.5, y: -0.15, z: 0.8}
+  rotationOffsetEuler: {x: 0, y: 0, z: 0}
+  lookAtTarget: {fileID: 391661923}
+  positionSpring: 99
+  positionSpringmultiplyer: 5
+  positionDamping: 20
+  rotationSpring: 85
+  rotationSpringmultiplyer: 1
+  rotationDamping: 5
+  maxDistance: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5823,7 +5707,6 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 659111853}
   - {fileID: 74216165}
-  - {fileID: 102459354}
   - {fileID: 1881798702}
   - {fileID: 550089086}
   - {fileID: 986075848}
