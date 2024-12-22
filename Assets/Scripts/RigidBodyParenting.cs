@@ -12,6 +12,7 @@ public class DampenedSpringParenting : MonoBehaviour
     [SerializeField] private float positionSpringmultiplyer = 1f;
     [SerializeField] private float positionDamping = 5f; // Damping constant for position
     private float positionDampingUse = 5f;
+    private float maxDistanceUse = 5f;
     [SerializeField] private float rotationSpring = 50f; // Spring constant for rotation
     [SerializeField] private float rotationSpringmultiplyer = 1f;
     [SerializeField] private float rotationDamping = 5f; // Damping constant for rotation
@@ -38,6 +39,7 @@ public class DampenedSpringParenting : MonoBehaviour
         {
             positionOffset = positionOffsetSource.GetPositionOffset(); // Assuming PositionOffsetSource has this method
             positionDampingUse = positionDamping * positionOffsetSource.GetPositionDamp();
+            maxDistanceUse = maxDistance * positionOffsetSource.GetPositionDamp();
         } 
 
         if (targetParent == null) return;
@@ -48,7 +50,7 @@ public class DampenedSpringParenting : MonoBehaviour
         float distance = positionDelta.magnitude;
 
         // Check if the object exceeds the max distance
-        if (distance > maxDistance)
+        if (distance > maxDistanceUse)
         {
             if (limiting)
             {
@@ -64,7 +66,7 @@ public class DampenedSpringParenting : MonoBehaviour
             }
             else
             {
-                currentDistance = maxDistance;
+                currentDistance = maxDistanceUse;
             }
         }
         else

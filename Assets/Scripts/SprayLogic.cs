@@ -4,7 +4,9 @@ using UnityEngine.Events;
 
 public class SprayLogic : MonoBehaviour
 {
-    public static float sprayTimeRemaing = 120f; // Initial value of the global variable
+    public static float sprayTimeRemaing = 0f; // Initial value of the global variable
+    [SerializeField]private float sprayTime = 120f;
+    public static float maxSprayTime = 0f;
     [SerializeField]private float sprayDecrementAmount = 0.1f; // Amount to decrement per key press
     private KeyCode targetKey = KeyCode.Space; // Key to monitor
     public UnityEvent startSpray; // Event triggered when key is pressed
@@ -22,11 +24,13 @@ public class SprayLogic : MonoBehaviour
     {
         isActionInProgress = false;
         isActive = true;
-        sprayTimeRemaing = 120;
+        sprayTimeRemaing = sprayTime;
+        maxSprayTime = sprayTime;
     }  
     void Awake()
     {
         InitializeSprayLogic();
+        maxSprayTime = sprayTime;
     }
     void Update()
     {
@@ -47,7 +51,13 @@ public class SprayLogic : MonoBehaviour
                     isActionInProgress = false;
                 }
             }
+            
         } 
+        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            InitializeSprayLogic();
+        }
         
         if (Input.GetKeyUp(targetKey))
         {
@@ -62,7 +72,19 @@ public class SprayLogic : MonoBehaviour
 
     void FixedUpdate()
     {
-       if (isActionInProgress == true) sprayTimeRemaing -= sprayDecrementAmount * Time.deltaTime; 
+       if (isActionInProgress == true)
+        {
+            sprayTimeRemaing -= sprayDecrementAmount * Time.deltaTime; 
+            
+            if (sprayTimeRemaing < 0) 
+            {
+                Debug.Log("reset spray");
+                isActionInProgress = false;
+                isActive = false;
+                sprayTimeRemaing = 0;
+                endSpray.Invoke();
+            } 
+        }
     }
     private System.Collections.IEnumerator HandleHitEvents()
     {
@@ -71,6 +93,6 @@ public class SprayLogic : MonoBehaviour
         yield return new WaitForSeconds(hitDelay);
         endSprayMelee.Invoke();
         isActionInProgress = false;
-        sprayTimeRemaing -= hitSprayUseAmount;
+        sprayTimeRemaing = Mathf.Max(0, (sprayTimeRemaing - hitSprayUseAmount));
     }  
 }

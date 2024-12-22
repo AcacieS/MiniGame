@@ -23,7 +23,7 @@ public class PositionOffsetSource : MonoBehaviour
         currentOffset = offset1;
         currentState = OffsetState.Offset1;
         sprayPosDampMulti = 2;
-        Debug.Log("Activated Offset 1");
+        //Debug.Log("Activated Offset 1");
     }
 
     public void ActivateOffset2()
@@ -38,7 +38,7 @@ public class PositionOffsetSource : MonoBehaviour
         currentOffset = offset3;
         currentState = OffsetState.Offset3;
         sprayPosDampMulti = 2;
-        Debug.Log("Activated Offset 3");
+        //Debug.Log("Activated Offset 3");
     }
 
     public Vector3 GetPositionOffset()
@@ -48,14 +48,14 @@ public class PositionOffsetSource : MonoBehaviour
 
     private IEnumerator DelayOffset2()
     {
-        Debug.Log("Offset 2 activation delayed...");
+        //Debug.Log("Offset 2 activation delayed...");
         yield return new WaitForSeconds(delayDuration);
 
         // After the delay, set offset2 as the current offset
         currentOffset = offset2;
         currentState = OffsetState.Offset2;
         sprayPosDampMulti = 2.5f;
-        Debug.Log("Activated Offset 2 (after delay)");
+        //Debug.Log("Activated Offset 2 (after delay)");
         delayCoroutine = null; // Clear the coroutine reference
     }
 
@@ -65,7 +65,7 @@ public class PositionOffsetSource : MonoBehaviour
         {
             StopCoroutine(delayCoroutine);
             delayCoroutine = null;
-            Debug.Log("Delayed Offset 2 activation canceled");
+            //Debug.Log("Delayed Offset 2 activation canceled");
         }
     }
 
