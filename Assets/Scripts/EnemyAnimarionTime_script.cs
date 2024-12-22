@@ -11,25 +11,23 @@ public class EnemyAnimarionTime_script : MonoBehaviour
     private Dictionary<string, Animator[]> my_choice = new Dictionary<string, Animator[]>();
    
 
-    private float action_Time = 5f;
-    private float action_Time_max = 5f;
+    private float action_Time = 2f;
+    private float action_Time_max = 2f;
     
     
-    //GameObject[] eyessss = my_choice["eye"];
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-       
-    }
+   
     public void addTypeAction(string Obj){
-        if (Obj=="eye"){
-            my_choice.Add(Obj, eyes);
-        }else if(Obj=="hand"){
-            my_choice.Add(Obj, hands);
-        }else{
-            my_choice.Add(Obj, phones);
+        if(!my_choice.ContainsKey(Obj)){
+            if (Obj=="eye"){
+                my_choice.Add(Obj, eyes);
+            }else if(Obj=="hand"){
+                
+                my_choice.Add(Obj, hands);
+            }else{
+                my_choice.Add(Obj, phones);
+            }  
         }
+        
     }
     public void Set_max_time(float new_max_time){
         action_Time_max = new_max_time;
@@ -54,6 +52,8 @@ public class EnemyAnimarionTime_script : MonoBehaviour
 
         //Select random animation type("eye","hand","phone")
         int choiceAction_rand = Random.Range(0, my_choice.Count);
+        Debug.Log(choiceAction_rand);
+        Debug.Log("choice"+my_choice.Keys.ElementAt(choiceAction_rand));
         string actionKey = my_choice.Keys.ElementAt(choiceAction_rand);
 
         Animator[] element_action = my_choice[actionKey];

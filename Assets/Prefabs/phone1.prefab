@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8277241123365233821}
   - component: {fileID: 2854353566159708053}
   - component: {fileID: 6208865738695741140}
+  - component: {fileID: 8583788929065238470}
   m_Layer: 0
   m_Name: phone1
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,3 +134,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8583788929065238470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473366285173231821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5380d0f3c3f5b0e49a5649c6d29e44bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objAnimator: {fileID: 0}

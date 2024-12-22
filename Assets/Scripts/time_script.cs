@@ -8,8 +8,8 @@ public class time_script : MonoBehaviour
     private EnemyAnimarionTime_script anim_script;
     private float total_Time = 100f;
     private float remain_Time;
-    private float hand_time = 50f;
-    private float phone_time = 70f;
+    private float hand_time = 90f;
+    private float phone_time = 90f;
     //public Image timer_game;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,21 +26,18 @@ public class time_script : MonoBehaviour
         if(remain_Time>0){
             TimeDecount();
         }else{
-            Set_add_type_action(phone_time, "phone");
-            Set_add_type_action(hand_time, "hand");
-            Set_max_time_script(85,4);
-            Set_max_time_script(70,3);
-        }
-
-        //total_Time -= Time.deltaTime;
-        if(total_Time<=0){
             Good_End();
         }
-       
+
+        
         
     }
    
     private void TimeDecount(){
+        Set_add_type_action(phone_time, "phone");
+        Set_add_type_action(hand_time, "hand");
+        Set_max_time_script(85,4);
+        Set_max_time_script(70,3);
         remain_Time -= Time.deltaTime;
         int displayTime = Mathf.FloorToInt(remain_Time);
         TimeTxt.text = displayTime.ToString();
@@ -51,13 +48,14 @@ public class time_script : MonoBehaviour
         }
     }
     private void Set_add_type_action(float whichTime, string typeAction){
-        if(whichTime_function(whichTime)==true){
+        
+        if(whichTime_function(whichTime)){
             anim_script.addTypeAction(typeAction);
         }
     }
     
     private bool whichTime_function(float whichTime){
-        if(remain_Time==whichTime){
+        if(Mathf.FloorToInt(remain_Time)==whichTime){
             return true;
         }
         return false;
