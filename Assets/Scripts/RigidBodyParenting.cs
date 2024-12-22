@@ -37,8 +37,7 @@ public class DampenedSpringParenting : MonoBehaviour
         if (getFromPrev && positionOffsetSource != null)
         {
             positionOffset = positionOffsetSource.GetPositionOffset(); // Assuming PositionOffsetSource has this method
-            positionDampingUse = positionDamping * SprayLogic.sprayPosDampMulti;
-            Debug.Log(positionDampingUse);
+            positionDampingUse = positionDamping * positionOffsetSource.GetPositionDamp();
         } 
 
         if (targetParent == null) return;

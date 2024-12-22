@@ -10,6 +10,8 @@ public class SprayParticleSystemController : MonoBehaviour
         sprayParticleSystem = GetComponent<ParticleSystem>();
         var mainModule = sprayParticleSystem.main;
         mainModule.cullingMode = ParticleSystemCullingMode.AlwaysSimulate; // Prevent culling
+        var emission = sprayParticleSystem.emission; // Access the emission module
+        TurnOffParticles();
     }
 
     public void TurnOnParticles()
