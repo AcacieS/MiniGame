@@ -34,7 +34,8 @@ public class player_controller : MonoBehaviour
             GetComponent<Rigidbody>().useGravity = false;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
             Destroy(col.gameObject);
-            door.GetComponent<Animator>().SetFloat("Speed", -1);
+            door.GetComponent<Animator>().enabled = true;//SetFloat("Speed", -1);
+
             foreach(GameObject eachEnemy in enemy){
                 eachEnemy.SetActive(true);
             }
