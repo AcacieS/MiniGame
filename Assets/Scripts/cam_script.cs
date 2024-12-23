@@ -5,6 +5,7 @@ public class cam_script : MonoBehaviour
     public GameObject bad_end_scene;
     public GameObject mechanism;
     public Camera endCamera;
+    public GameObject sound;
     private bool end = false;
     private GameObject flashScreen;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +22,8 @@ public class cam_script : MonoBehaviour
         mechanism.SetActive(false);
         
         endCamera.enabled = true;
+        sound.SetActive(false);
+        
     }
     void Update(){
         if (!end){
