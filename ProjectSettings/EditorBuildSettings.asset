@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Credit.unity
     guid: 86129bee497292c4fb62583683ae7c60
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: ab061f66bb012d646bd5f501a1caa5a7
+  - enabled: 1
     path: Assets/Scenes/toilet.unity
     guid: ce9c83888efa9b04eadc1d862ed15a91
   - enabled: 1

@@ -10,23 +10,24 @@ public class EnemyAnimationTime_script : MonoBehaviour
 
     private Dictionary<string, Animator[]> my_choice = new Dictionary<string, Animator[]>();
    
+    private float action_Time_max = 6f;
 
-    private float action_Time = 2f;
-    private float action_Time_max = 2f;
+    private float action_Time;
     
     
+    void Start(){
+        action_Time = action_Time_max;
+    }
    
     public void addTypeAction(string Obj){
         if(!my_choice.ContainsKey(Obj)){
             if (Obj=="eye"){
-                //my_choice.Add(Obj, hands);
-                //my_choice.Add(Obj, eyes);
-                my_choice.Add(Obj, phones);
+                my_choice.Add(Obj, eyes);
             }else if(Obj=="hand"){
                 
-                //my_choice.Add(Obj, hands);
+                my_choice.Add(Obj, hands);
             }else{
-                //my_choice.Add(Obj, phones);
+                my_choice.Add(Obj, phones);
             }  
         }
         

@@ -9,6 +9,8 @@ TagManager:
   - hitMelee
   - hand
   - table
+  - SpawnPos
+  - talking
   layers:
   - Default
   - TransparentFX
